@@ -598,14 +598,14 @@ label {
   100% {
     transform: scale(1);
   }
-  -0% {
-    transform: scale(1);
+  0% {
+    transform: scale(0.5);
   }
-  -50% {
+  50% {
     transform: scale(0.8);
   }
-  -100% {
-    transform: scale(0.5);
+  100% {
+    transform: scale(1);
   }
 }
 
@@ -697,6 +697,11 @@ label {
 
 .header-section .navbar-area .dashboard-nav .single-item .profile-area i {
   margin-left: 5px;
+}
+
+.profile-image {
+  width: 40px; /* Establece el ancho deseado */
+  height: 40px; /* Establece el alto deseado */
 }
 
 .header-section .navbar-area .dashboard-nav .single-item .main-area {
@@ -1740,9 +1745,10 @@ label {
   width: 30px;
   height: 30px;
   left: -40px;
-  background-image: url(../images/icon/flag-usa.png);
+  background-image: url(../images/icon/flag-bolivia.png);
   background-repeat: no-repeat;
 }
+
 
 .dashboard-section.pay.step-2 .main-content .send-banance .nice-select .list {
   width: 100%;
@@ -1788,7 +1794,7 @@ label {
 }
 
 .dashboard-section.pay.step-2 .main-content .exchange-content .recipient .nice-select .current::before {
-  background-image: url(../images/icon/flag-bd.png);
+  background-image: url(../images/icon/brasil.png);
 }
 
 .dashboard-section.pay.step-2 .main-content .pay-option {

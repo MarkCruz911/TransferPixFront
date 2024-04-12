@@ -1,28 +1,36 @@
+import RecipientPeople from "../components/RecipientPeople";
+import ShippingDetails from "../components/ShippingDetails";
 import Navbar from "../sidebar/Navbar";
 
 const Recipient = () => {
+    const recipientsData = [
+        { id: 1, name: "Morris Lucas", email: "morris@example.com", image: "src/assets/images/profile-2.png" },
+        { id: 2, name: "Willard Lyons", email: "willard@example.com", image: "src/assets/images/profile-3.png" },
+        { id: 3, name: "Willard Lyons", email: "willard@example.com", image: "src/assets/images/profile-3.png" }
+    ];
+
     return (
         <div>
             <div className="preloader" id="preloader"></div>
 
             <a href="javascript:void(0)" className="scrollToTop"><i className="fas fa-angle-double-up"></i></a>
-            <Navbar/>
+            <Navbar />
             <section className="dashboard-section body-collapse pay step exchange">
                 <div className="overlay pt-120">
                     <div className="container-fruid">
                         <div className="main-content">
                             <div className="head-area d-flex align-items-center justify-content-between">
-                                <h4>Money Exchange</h4>
+                                <h4>Datos del Destinatario Brasil</h4>
                                 <div className="icon-area">
-                                    <img src="src/assets/images/icon/support-icon.png" alt="icon"/>
+                                    <img src="src/assets/images/icon/support-icon.png" alt="icon" />
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col-xl-7 col-lg-6">
                                     <div className="choose-recipient">
                                         <div className="step-area">
-                                            <span className="mdr">Step 1 of 3</span>
-                                            <h5>Choose Recipient</h5>
+                                            <span className="mdr">Paso 1 de 3</span>
+                                            <h5>Elige o añade datos del destinatario</h5>
                                         </div>
                                         <ul className="nav nav-tabs" role="tablist">
                                             <li className="nav-item recipient-list" role="presentation">
@@ -32,7 +40,7 @@ const Recipient = () => {
                                                     <span className="icon-area">
                                                         <i className="icon-e-plus"></i>
                                                     </span>
-                                                    <span>My Recipients</span>
+                                                    <span>Añadir Destinatario</span>
                                                 </button>
                                             </li>
                                             <li className="nav-item recipient-list" role="presentation">
@@ -42,30 +50,69 @@ const Recipient = () => {
                                                     <span className="icon-area">
                                                         <i className="icon-f-user"></i>
                                                     </span>
-                                                    <span>Most Recent</span>
+                                                    <span>Destinatarios Recientes</span>
                                                 </button>
                                             </li>
                                         </ul>
                                         <div className="tab-content">
                                             <div className="tab-pane fade show active" id="recipients" role="tabpanel" aria-labelledby="recipients-tab">
                                                 <div className="section-head">
-                                                    <h5>Add a new recipient</h5>
-                                                    <p>This information must be accurate or your transfer will be delayed.</p>
+                                                    <h5>Añadir un nuevo destinatario</h5>
+                                                    <p>Esta información debe ser exacta o su transferencia se retrasará.</p>
                                                 </div>
                                                 <form action="#">
                                                     <div className="row justify-content-center">
                                                         <div className="col-md-6">
                                                             <div className="single-input">
-                                                                <label htmlFor="recipientsfname">First Name</label>
-                                                                <input type="text" id="recipientsfname" placeholder="Dana"/>
+                                                                <label htmlFor="recipientsfname">Nombre</label>
+                                                                <input type="text" id="recipientsfname" className="pl-2" placeholder="Marco" />
                                                             </div>
                                                         </div>
                                                         <div className="col-md-6">
                                                             <div className="single-input">
-                                                                <label htmlFor="recipientslname">Last Name</label>
-                                                                <input type="text" id="recipientslname" placeholder="Patton"/>
+                                                                <label htmlFor="recipientslname">Apellido</label>
+                                                                <input type="text" id="recipientslname" className="pl-2" placeholder="Cruz" />
                                                             </div>
                                                         </div>
+                                                        <div className="col-md-12">
+                                                            <div className="single-input">
+                                                                <label htmlFor="recipientsemail">Email</label>
+                                                                <input type="text" id="recipientsemail" placeholder="Email" />
+                                                            </div>
+                                                        </div>
+                                                        <div className="col-md-12">
+                                                            <div className="single-input">
+                                                                <label htmlFor="recipientsphone">Documento</label>
+                                                                <div className="select-area d-flex align-items-center">
+                                                                    <select>
+                                                                        <option value="CI">CI</option>
+                                                                        <option value="CPF">CPF</option>
+                                                                    </select>
+                                                                    <input type="text" id="recipientsphone" className="pl-2" placeholder="Datos Documento" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="pay-option-single border-area pb-4">
+                                                            <h6 className="pb-1">Bank Transfer Partner</h6>
+                                                            <select className="">
+                                                                <option value="1">Dutch bangla bank</option>
+                                                                <option value="2">Dutch bangla bank</option>
+                                                                <option value="3">Dutch bangla bank</option>
+                                                            </select>
+                                                        </div>
+                                                        <div className="col-md-12">
+                                                            <div className="single-input">
+                                                                <label htmlFor="recipientscuenta">Llave Pix/Cuenta Bancaria</label>
+                                                                <div className="select-area d-flex align-items-center">
+                                                                    <select>
+                                                                        <option value="LlavePix">Llave Pix</option>
+                                                                        <option value="CuentaBancaria">Cuenta Bancaria</option>
+                                                                    </select>
+                                                                    <input type="text" id="recipientscuenta" className="pl-2" placeholder="Digite los Datos" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {/*
                                                         <div className="col-md-12">
                                                             <div className="single-input">
                                                                 <label htmlFor="recipientslAddress">Address Line 1 (Option)</label>
@@ -84,102 +131,36 @@ const Recipient = () => {
                                                                 <input type="text" id="recipientslCode" placeholder="Postcode"/>
                                                             </div>
                                                         </div>
+                                                        */}
                                                         <div className="col-md-12">
                                                             <div className="single-input">
                                                                 <label htmlFor="recipientsphone">Phone</label>
                                                                 <div className="select-area d-flex align-items-center">
                                                                     <select>
-                                                                        <option value="1">+1</option>
-                                                                        <option value="2">+2</option>
-                                                                        <option value="3">+3</option>
+                                                                        <option value="+591">+591</option>
+                                                                        <option value="+55">+55</option>
                                                                     </select>
-                                                                    <input type="text" id="recipientsphone" placeholder="(070) 4567-8800"/>
+                                                                    <input type="text" id="recipientsphone" placeholder="(070) 4567-8800" />
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div className="col-md-12">
-                                                            <div className="single-input">
-                                                                <label htmlFor="recipientsemail">Email Address</label>
-                                                                <input type="text" id="recipientsemail" placeholder="Email Address"/>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12">
-                                                            <div className="single-input">
-                                                                <label htmlFor="bankname">Bank Name</label>
-                                                                <input type="text" id="bankname" placeholder="Bank Name"/>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12">
-                                                            <div className="single-input">
-                                                                <label htmlFor="branchname">Branch Name</label>
-                                                                <input type="text" id="branchname" placeholder="Branch Name"/>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12">
-                                                            <div className="single-input">
-                                                                <label htmlFor="accountnumber">Account number</label>
-                                                                <input type="text" id="accountnumber" placeholder="Account number"/>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-md-12">
-                                                            <div className="single-input">
-                                                                <label htmlFor="sendingreason">Reason for Sending</label>
-                                                                <input type="text" id="sendingreason" placeholder="Reason for Sending"/>
-                                                            </div>
-                                                        </div>
-                                                        <div className="col-12">
-                                                            <div className="footer-area mt-40">
-                                                                <a href="money-exchange.html">Previous Step</a>
-                                                                <a href="money-exchange-step-2.html" className="active">Next</a>
-                                                            </div>
-                                                        </div>
+
                                                     </div>
                                                 </form>
                                             </div>
                                             <div className="tab-pane fade" id="recent" role="tabpanel" aria-labelledby="recent-tab">
                                                 <div className="user-select">
-                                                    <div className="single-user">
-                                                        <div className="left d-flex align-items-center">
-                                                            <div className="img-area">
-                                                                <img src="src/assets/images/profile-1.png" alt="image"/>
-                                                            </div>
-                                                            <div className="text-area">
-                                                                <p>Herman Tran</p>
-                                                                <span className="mdr"><a href="https://pixner.net/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="4f072a3d222e217c7a0f28222e2623612c2022">[email&#160;protected]</a></span>
-                                                            </div>
-                                                        </div>
-                                                        <div className="right">
-                                                            <a href="javascript:void(0)">Choose</a>
-                                                        </div>
-                                                    </div>
-                                                    <div className="single-user">
-                                                        <div className="left d-flex align-items-center">
-                                                            <div className="img-area">
-                                                                <img src="src/assets/images/profile-2.png" alt="image"/>
-                                                            </div>
-                                                            <div className="text-area">
-                                                                <p>Morris Lucas</p>
-                                                                <span className="mdr"><a href="https://pixner.net/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="dd90b2afafb4aeefef9dbab0bcb4b1f3beb2b0">[email&#160;protected]</a></span>
-                                                            </div>
-                                                        </div>
-                                                        <div className="right">
-                                                            <a href="javascript:void(0)">Choose</a>
-                                                        </div>
-                                                    </div>
-                                                    <div className="single-user">
-                                                        <div className="left d-flex align-items-center">
-                                                            <div className="img-area">
-                                                                <img src="src/assets/images/profile-3.png" alt="image"/>
-                                                            </div>
-                                                            <div className="text-area">
-                                                                <p>Willard Lyons</p>
-                                                                <span className="mdr"><a href="https://pixner.net/cdn-cgi/l/email-protection" className="__cf_email__" data-cfemail="66310f0a0a0714025f5f26010b070f0a4805090b">[email&#160;protected]</a></span>
-                                                            </div>
-                                                        </div>
-                                                        <div className="right">
-                                                            <a href="javascript:void(0)">Choose</a>
-                                                        </div>
-                                                    </div>
+                                                    {
+                                                        recipientsData.map(recipient=>(
+                                                            <RecipientPeople 
+                                                            key={recipient.id}
+                                                            name={recipient.name}
+                                                            email={recipient.email}
+                                                            image={recipient.image}
+                                                            />
+                                                        ))
+                                                    }
+                                                    
                                                 </div>
                                                 <div className="col-12">
                                                     <div className="footer-area mt-40">
@@ -191,54 +172,7 @@ const Recipient = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="col-xl-5 col-lg-6">
-                                    <div className="side-area">
-                                        <p>Recipient gets</p>
-                                        <div className="title-area">
-                                            <h5>Bank Deposit</h5>
-                                            <ul className="flag-area">
-                                                <li>
-                                                    <span className="icon-area">
-                                                        <img src="src/assets/images/icon/flag-usa.png" alt="icon"/>
-                                                    </span>
-                                                </li>
-                                                <li>
-                                                    <span className="icon-area">
-                                                        <img src="src/assets/images/icon/flag-bd.png" alt="icon"/>
-                                                    </span>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <ul className="deposit-details">
-                                            <li>
-                                                <span>You Send</span>
-                                                <b>400.00 GBP</b>
-                                            </li>
-                                            <li>
-                                                <span>They get</span>
-                                                <b>45433.03 BDT</b>
-                                            </li>
-                                            <li>
-                                                <span>Exchange rate</span>
-                                                <b>1 GBP = 113.58257 BDT</b>
-                                            </li>
-                                            <li>
-                                                <span>Our fee</span>
-                                                <b>+0.99 GBP</b>
-                                            </li>
-                                        </ul>
-                                        <ul className="deposit-details">
-                                            <li>
-                                                <span>Total to pay</span>
-                                                <b>400.99 GBP</b>
-                                            </li>
-                                            <li>
-                                                <span>They receive</span>
-                                                <b>45433.03 BDT</b>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <ShippingDetails/>
                             </div>
                         </div>
                     </div>
